@@ -26,7 +26,10 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
         if user:
-            template = jinja_environment.get_template('template/homepage2.html')
+            greeting = ('Welcome! (<a href="%s"> sign out</a>)' % users.create_logout_url('/'))
+            self.response.write('<div>%s</div>' % greeting)
+            template = jinja_environment.get_template('template/loggedin.html')
+            users.create_logout_url('/')
             self.response.write(template.render())
         else:
             auth_url = users.create_login_url('/')
