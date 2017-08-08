@@ -28,11 +28,12 @@ class MainHandler(webapp2.RequestHandler):
         if user:
             greeting = ('Welcome, %s! (<a href="%s">sign out</a>)' %
                 (user.nickname(), users.create_logout_url('/')))
+            self.response.write('<html><body>%s</body></html>' % greeting)
         else:
             greeting = ('<a href="%s">Sign in or register</a>.' %
                 users.create_login_url('/'))
+            self.response.write('<html><body>%s</body></html>' % greeting)
 
-        self.response.write('<html><body>%s</body></html>' % greeting)
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
