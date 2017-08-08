@@ -30,11 +30,12 @@ class MainHandler(webapp2.RequestHandler):
                 (user.nickname(), users.create_logout_url('/')))
             self.response.write('<html><body>%s</body></html>' % greeting)
         else:
-            greeting = ('<a href="%s">Sign in or register</a>.' %
-                users.create_login_url('/'))
+            auth_url = users.create_login_url('/')
             template = jinja_environment.get_template('template/homepage2.html')
-            self.response.out.write(template.render(variables))
-            self.response.write('<html><body>%s</body></html>' % greeting)
+            template_vars = {
+                'login_url': auth_url,
+            }
+            self.response.out.write(template.render(template_vars))
 
 
 app = webapp2.WSGIApplication([
