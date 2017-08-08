@@ -32,6 +32,8 @@ class MainHandler(webapp2.RequestHandler):
         else:
             greeting = ('<a href="%s">Sign in or register</a>.' %
                 users.create_login_url('/'))
+            template = jinja_environment.get_template('template/homepage2.html')
+            self.response.out.write(template.render(variables))
             self.response.write('<html><body>%s</body></html>' % greeting)
 
 
