@@ -144,7 +144,8 @@ li a:hover {
               drawScene3();
             }
       </script>
-      <canvas id="mycanvas"></canvas>
+      <canvas id="mycanvas"
+      class="canvasalign"></canvas>
     </body>
   <style>
   .leftimg{
@@ -158,6 +159,10 @@ li a:hover {
     transform: scaleX(-1);
     filter: FlipH;
     -ms-filter: "FlipH";
+  }
+  .canvasalign{
+    display: block;
+    margin: 0 auto;
   }
   </style>
 </html>
