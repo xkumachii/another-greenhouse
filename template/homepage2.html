@@ -51,7 +51,19 @@ li a:hover {
         class="rightimg">
 
         <ul>
-          <li><a class="active" href="{{ login_url }}">Login</a></li>        </ul>
+          <li><a class="active" href="{{ login_url }}">Login</a></li>
+        </ul>
+        <script src="/static/processing.js"></script>
+        <script type="text/processing" data-processing-target="mycanvas">
+                  void setup()
+                  {
+                    size(400,400);
+                    frameRate(30);
+                    background(207, 250, 255);
+                  }
+          </script>
+          <canvas id="mycanvas"
+          class="canvasalign"></canvas>
 </body>
 <style>
   .leftimg{
@@ -65,6 +77,11 @@ li a:hover {
     transform: scaleX(-1);
     filter: FlipH;
     -ms-filter: "FlipH";
+  }
+  .canvasalign{
+    display: block;
+    margin: 0 auto;
+    border: 3px solid;
   }
   </style>
 </html>
