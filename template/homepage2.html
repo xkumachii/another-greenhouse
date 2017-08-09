@@ -4,8 +4,10 @@
     <meta charset="utf-8">
     <title>The Greenhouse</title>
     <h1 style="color:black;"align="center">The Greenhouse</h1>
-
     <style>
+h1 {
+  font-size: 100px;
+}
 ul {
     list-style-type: none;
     margin: 0;
@@ -24,6 +26,7 @@ li a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-size: 25px;
 }
 
 li a:hover {
@@ -49,8 +52,20 @@ li a:hover {
 
         <ul>
           <li><a class="active" href="{{ login_url }}">Login</a></li>
-          <li><a href="#about">About</a></li>
         </ul>
+        <script src="/static/processing.js"></script>
+        <script type="text/processing" data-processing-target="mycanvas">
+                  void setup()
+                  {
+                    size(400,400);
+                    frameRate(30);
+                    background(207, 250, 255);
+                    fill(0,0,0);
+                    text("The Greenhouse is a simple yet educational game that teaches you how to take care of a virtual plant, preparing you and getting you ready before you take care of the real deal. ", 6, 20, 400, 400);
+                  }
+          </script>
+          <canvas id="mycanvas"
+          class="canvasalign"></canvas>
 </body>
 <style>
   .leftimg{
@@ -64,6 +79,11 @@ li a:hover {
     transform: scaleX(-1);
     filter: FlipH;
     -ms-filter: "FlipH";
+  }
+  .canvasalign{
+    display: block;
+    margin: 0 auto;
+    border: 3px solid;
   }
   </style>
 </html>
