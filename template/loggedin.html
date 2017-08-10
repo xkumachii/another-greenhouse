@@ -37,11 +37,10 @@ li a:hover {
 
   </head>
   <body>
-    <input type="button" id="TEST"value="CLIK ME"/>
-    <button onclick="original()">Click me</button>
-    <button onclick="" = "water">Water Me!</button>
-    <button id = "fertilizer">Fertilize Me!</button>
-    <button onclick = "test()">Kill me!</button>
+    <input type="button" id="Start"value="Original Plant"/>
+    <input type="button" id="Water"value="Water Plant"/>
+    <input type= "button" id ="Fertilizer"value="Fertilize"/>
+    <input type= "button" id="Death"value="Kill Me!"/>
   <style>
   body{
     background-image: url("https://ak9.picdn.net/shutterstock/videos/10055033/thumb/1.jpg");
@@ -62,15 +61,10 @@ li a:hover {
         </ul>
         <script src="/static/processing.js"></script>
         <script type="text/processing" data-processing-target="startingFlower">
-        $(() => {
-          $('#TEST').click(function() {
-          $('#TITLE').fadeToggle(1000);
-          })
-        })
         void setup()
         {
           size(400,400);
-          frameRate(40);
+          frameRate(20);
           fill(0);
         }
         var xPositions = [241, 233, 207,194, 199,166, 210, 169];
@@ -94,7 +88,29 @@ li a:hover {
             fill(20,20,20);
             ellipse(205, 211, 40, 28);
           }
-
+          $(() => {
+            $('#Start').click(function() {
+            $('#startingFlower').show();;
+            })
+          })
+          $(() => {
+            $('#Fertilizer').click(function() {
+            $('#startingFlower').hide();;
+            $('#startingFlower').stop();;
+            })
+          })
+          $(() => {
+            $('#Water').click(function() {
+            $('#startingFlower').hide();;
+            $('#startingFlower').stop();;
+            })
+          })
+          $(() => {
+            $('#Death').click(function() {
+            $('#startingFlower').hide();;
+            $('#startingFlower').stop();;
+            })
+          })
           </script>
           <canvas id="startingFlower"
           class="canvasalign"></canvas>
@@ -106,7 +122,7 @@ li a:hover {
                   void setup()
                   {
                     size(400,400);
-                    frameRate(40);
+                    frameRate(20);
                     fill(0);
                   }
                   var xPositions = [241, 233, 207,194, 199,166, 210, 169];
@@ -150,6 +166,29 @@ li a:hover {
                            yPositions[i] = 95;}
                         }
                   };
+                  $(() => {
+                    $('#Start').click(function() {
+                    $('#waterFlower').hide();;
+                    $('#waterFlower').stop();;
+                    })
+                  })
+                  $(() => {
+                    $('#Fertilizer').click(function() {
+                    $('#waterFlower').hide();;
+                    $('#waterFlower').stop();;
+                    })
+                  })
+                  $(() => {
+                    $('#Water').click(function() {
+                    $('#waterFlower').show();;
+                    })
+                  })
+                  $(() => {
+                    $('#Death').click(function() {
+                    $('#waterFlower').hide();;
+                    $('#waterFlower').stop();;
+                    })
+                  })
           </script>
           <canvas id="waterFlower"
           class="canvasalign"></canvas>
@@ -160,7 +199,7 @@ li a:hover {
                     void setup()
                     {
                       size(400,400);
-                      frameRate(40);
+                      frameRate(20);
                       fill(0);
                     }
                     var xPositions = [225, 232, 184,194, 199,166, 210, 169];
@@ -200,6 +239,29 @@ li a:hover {
                              yPositions[i] = 92;}
                             }
                     };
+                    $(() => {
+                      $('#Start').click(function() {
+                      $('#fertilizeFlower').hide();;
+                      $('#fertilizeFlower').stop();;
+                      })
+                    })
+                    $(() => {
+                      $('#Fertilizer').click(function() {
+                      $('#fertilizeFlower').show();;
+                      })
+                    })
+                    $(() => {
+                      $('#Water').click(function() {
+                      $('#fertilizeFlower').hide();;
+                      $('#fertilizeFlower').stop();;
+                      })
+                    })
+                    $(() => {
+                      $('#Death').click(function() {
+                      $('#fertilizeFlower').hide();;
+                      $('#fertilizeFlower').stop();;
+                      })
+                    })
             </script>
             <canvas id="fertilizeFlower"
             class="canvasalign"></canvas>
@@ -210,7 +272,7 @@ li a:hover {
                       void setup()
                       {
                         size(400,400);
-                        frameRate(10);
+                        frameRate(20);
                         fill(0);
                       }
                   void draw() {
@@ -249,10 +311,29 @@ li a:hover {
         background(207, 250, 255);
         wiltedSf.draw();
         };
+        drawScene4();
         }
         $(() => {
-          $('#water').click(function() {
-            drawScene4();
+          $('#Start').click(function() {
+          $('#deadFlower').hide();;
+          $('#deadFlower').stop();;
+          })
+        })
+        $(() => {
+          $('#Fertilizer').click(function() {
+          $('#deadFlower').hide();;
+          $('#deadFlower').stop();;
+          })
+        })
+        $(() => {
+          $('#Water').click(function() {
+          $('#deadFlower').hide();;
+          $('#deadFlower').stop();;
+          })
+        })
+        $(() => {
+          $('#Death').click(function() {
+          $('#deadFlower').show();;
           })
         })
               </script>
