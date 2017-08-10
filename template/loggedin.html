@@ -37,7 +37,7 @@ li a:hover {
 
   </head>
   <body>
-    <input type="button" id="TEST" onclick="test()" value="CLIK ME"/>
+    <input type="button" id="TEST"value="CLIK ME"/>
     <button onclick="original()">Click me</button>
     <button onclick="" = "water">Water Me!</button>
     <button id = "fertilizer">Fertilize Me!</button>
@@ -62,6 +62,11 @@ li a:hover {
         </ul>
         <script src="/static/processing.js"></script>
         <script type="text/processing" data-processing-target="startingFlower">
+        $(() => {
+          $('#TEST').click(function() {
+          $('#TITLE').fadeToggle(1000);
+          })
+        })
         void setup()
         {
           size(400,400);
@@ -244,17 +249,16 @@ li a:hover {
         background(207, 250, 255);
         wiltedSf.draw();
         };
-        drawScene4();
         }
-        // $(() => {
-        //   $('#water').click(function() {
-        //     drawScene4();
-        //   })
-        // })
+        $(() => {
+          $('#water').click(function() {
+            drawScene4();
+          })
+        })
               </script>
               <canvas id="deadFlower"
               class="canvasalign"></canvas>
-
+              <script src = "http://code.jquery.com/jquery-2.1.4.min.js"></script>
         </body>
 
   <style>
