@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>The Greenhouse</title>
-    <h1 style="color:black;"align="center">The Greenhouse</h1>
+    <h1 style="color:black;"align="center;" id="TITLE">The Greenhouse</h1>
 
     <style>
 h1 {
@@ -37,6 +37,11 @@ li a:hover {
 
   </head>
   <body>
+    <input type="button" id="TEST" onclick="test()" value="CLIK ME"/>
+    <button onclick="original()">Click me</button>
+    <button onclick="" = "water">Water Me!</button>
+    <button id = "fertilizer">Fertilize Me!</button>
+    <button onclick = "test()">Kill me!</button>
   <style>
   body{
     background-image: url("https://ak9.picdn.net/shutterstock/videos/10055033/thumb/1.jpg");
@@ -55,107 +60,203 @@ li a:hover {
           <!-- <li><a class="active" href="{{ logout_url }}">Log out</a></li> -->
           <li><a href="#about">  </a></li>
         </ul>
-    <script src="/static/processing.js"></script>
-    <script type="text/processing" data-processing-target="mycanvas">
-              void setup()
-              {
-                size(400,400);
-                frameRate(30);
-                fill(0);
-              }
+        <script src="/static/processing.js"></script>
+        <script type="text/processing" data-processing-target="startingFlower">
+        void setup()
+        {
+          size(400,400);
+          frameRate(40);
+          fill(0);
+        }
+        var xPositions = [241, 233, 207,194, 199,166, 210, 169];
+        var yPositions = [104, 152, 112,198,131,118,89,161];
+        void draw() {
+            //sky
+            background(207, 250, 255);
+            //ground
+            fill(64, 40, 40);
+            rect(0, 381, 401, 23);
+            //stem
+            fill(16, 122, 12);
+            rect(200, 240, 10, 165);
+            //petals
+            stroke(0, 0, 0);
+            fill(255, 221, 0);
+            ellipse(175, 211, 50, 40);
+            ellipse(205, 180, 50, 40);
+            ellipse(205, 240, 50, 40);
+            ellipse(235, 211, 50, 40);
+            fill(20,20,20);
+            ellipse(205, 211, 40, 28);
+          }
 
-              /*Flower Object Type
-              *******************/
-              void draw() {
-              var Flower = function (x, y, height) {
-                  this.x = x;
-                  this.y = y;
-                  this.height = height;
-              };
-              //Regular Flower and Watering
-              var Sunflower = function(x, y, height) {
-                  Flower.call(this, x, y, height);
-              };
-              Sunflower.prototype = Object.create(Flower.prototype);
-              Sunflower.prototype.draw = function() {
-                  fill(16, 122, 12);
-
-                  rect(this.x, this.y, 10, -this.height);
-
-                  // petals
-                  stroke(0, 0, 0);
-                  fill(255, 221, 0);
-                  ellipse(this.x-25, this.y-this.height, 50, 40);
-                  ellipse(this.x+5, this.y-this.height-30, 50, 40);
-                  ellipse(this.x+5, this.y-this.height+30, 50, 40);
-                  ellipse(this.x+37, this.y-this.height, 50, 40);
-                  fill(20, 20, 20);
-                  ellipse(this.x+5, this.y-this.height, 40, 28);
-              };
-            var xPositions = [199, 192, 184,194, 199,166, 210, 169, 188, 188, 152];
-            var yPositions = [216, 175, 153,66,131,118,89,197,230,107,168];
-            var sunflower = new Sunflower(199, 419, 165);
-            var beginningFlower = function() {
-                background(207, 250, 255);
-                sunflower.draw();
-            };
-
-            var drawScene2 = function() {
-                background(207, 250, 255);
-                sunflower.draw();
-                fill(148, 143, 143);
-                rect(220, 8, 110, 68);
-                for (var i = 0; i < xPositions.length; i++) {
-                    stroke(0,0,0);
-                    fill(0, 200, 255);
-                    ellipse(xPositions[i], yPositions[i], 10, 10);
-            }
-            };
-            var drawScene3 = function() {
-                background(207, 250, 255);
-                sunflower.draw();
-                stroke(0)
-                fill(148, 143, 143);
-                rect(220, 8, 110, 68);
-                for (var i = 0; i < xPositions.length; i++) {
-                    stroke(0,0,0);
-                    fill(255, 255, 255);
-                    ellipse(xPositions[i], yPositions[i], 10, 10);
-            }
-            };
-            var WiltedSf = function(x, y, height) {
-                Flower.call(this, x, y, height);
-            };
-            WiltedSf.prototype = Object.create(Flower.prototype);
-            WiltedSf.prototype.draw = function() {
-                  fill(107, 79, 86);
-
-                  rect(this.x, this.y, 10, -this.height);
-
-                  // petals
-                  stroke(0, 0, 0);
-                  fill(176, 161, 65);
-                  ellipse(this.x-45, this.y- 30, 50, 40);
-                  ellipse(this.x+73, this.y-34, 50, 40);
-                  ellipse(this.x+32, this.y-34, 50, 40);
-                  ellipse(this.x+-20, this.y-39, 40, 54);
-                  fill(20, 20, 20);
-                  ellipse(this.x+5, this.y-this.height, 40, 28);
-            };
-
-            var wiltedSf = new WiltedSf(199, 419, 165);
+          </script>
+          <canvas id="startingFlower"
+          class="canvasalign"></canvas>
 
 
-            var drawScene4 = function() {
-                background(207, 250, 255);
-                wiltedSf.draw();
-            };
-              beginningFlower();
-            }
-      </script>
-      <canvas id="mycanvas"
-      class="canvasalign"></canvas>
-    </body>
+
+        <script src="/static/processing.js"></script>
+        <script type="text/processing" data-processing-target="waterFlower">
+                  void setup()
+                  {
+                    size(400,400);
+                    frameRate(40);
+                    fill(0);
+                  }
+                  var xPositions = [241, 233, 207,194, 199,166, 210, 169];
+                  var yPositions = [104, 152, 112,198,131,118,89,161];
+                  void draw() {
+                      //sky
+                      background(207, 250, 255);
+                      //ground
+                      fill(64, 40, 40);
+                      rect(0, 381, 401, 23);
+                      //stem
+                      fill(16, 122, 12);
+                      rect(200, 240, 10, 165);
+                      //petals
+                      stroke(0, 0, 0);
+                      fill(255, 221, 0);
+                      ellipse(175, 211, 50, 40);
+                      ellipse(205, 180, 50, 40);
+                      ellipse(205, 240, 50, 40);
+                      ellipse(235, 211, 50, 40);
+                      fill(20,20,20);
+                      ellipse(205, 211, 40, 28);
+                      //wateringCan
+                          fill(255, 255, 255);
+                          noStroke();
+                          ellipse(139,67,53, 65);
+                          ellipse(205,20,111, 65);
+                          ellipse(254,49,64, 59);
+                          fill(252, 252, 252);
+                          ellipse(158,41,53, 65);
+                          fill(252, 252, 252);
+                          ellipse(190,68,107, 65);
+                          ellipse(251,60,88, 65);
+
+                          for (var i = 0; i < xPositions.length; i++) {
+                              stroke(0, 0, 0);
+                              fill(0, 200, 255);
+                              ellipse(xPositions[i], yPositions[i], 10, 10);
+                              yPositions[i] += 4;
+                              if (yPositions[i] > 380) {
+                           yPositions[i] = 95;}
+                        }
+                  };
+          </script>
+          <canvas id="waterFlower"
+          class="canvasalign"></canvas>
+
+
+          <script src="/static/processing.js"></script>
+          <script type="text/processing" data-processing-target="fertilizeFlower">
+                    void setup()
+                    {
+                      size(400,400);
+                      frameRate(40);
+                      fill(0);
+                    }
+                    var xPositions = [225, 232, 184,194, 199,166, 210, 169];
+                    var yPositions = [26, 90, 42,66,131,118,89,35];
+                    void draw() {
+                        //sky
+                        background(207, 250, 255);
+                        //ground
+                        fill(64, 40, 40);
+                        rect(0, 381, 399, 23);
+                        //stem
+                        fill(16, 122, 12);
+                        rect(200, 240, 10, 165);
+                        //petals
+                        stroke(0, 0, 0);
+                        fill(255, 221, 0);
+                        ellipse(175, 211, 50, 40);
+                        ellipse(205, 180, 50, 40);
+                        ellipse(205, 240, 50, 40);
+                        ellipse(235, 211, 50, 40);
+                        fill(20,20,20);
+                        ellipse(205, 211, 40, 28);
+                        //fertilizer
+                            noFill();
+                            strokeWeight(4);
+                            arc(284, 40, 58, 48, 180, 360);
+                            strokeWeight(1);
+                            fill(143, 143, 143);
+                            rect(243, 40, 110, 68,10);
+
+                            for (var i = 0; i < xPositions.length; i++) {
+                                stroke(0, 0, 0);
+                                fill(227, 229, 230);
+                                ellipse(xPositions[i], yPositions[i], 10, 10);
+                                yPositions[i] += 4;
+                                if (yPositions[i] > 374) {
+                             yPositions[i] = 92;}
+                            }
+                    };
+            </script>
+            <canvas id="fertilizeFlower"
+            class="canvasalign"></canvas>
+
+
+            <script src="/static/processing.js"></script>
+            <script type="text/processing" data-processing-target="deadFlower">
+                      void setup()
+                      {
+                        size(400,400);
+                        frameRate(10);
+                        fill(0);
+                      }
+                  void draw() {
+                    var Flower = function (x, y, height) {
+        this.x = x;
+        this.y = y;
+        this.height = height;
+        };
+        var WiltedSf = function(x, y, height) {
+        Flower.call(this, x, y, height);
+        };
+        WiltedSf.prototype = Object.create(Flower.prototype);
+
+        WiltedSf.prototype.draw = function() {
+        fill(107, 79, 86);
+        rect(this.x, this.y, 10, -this.height);
+        //ground
+        fill(130, 108, 108);
+        rect(0, 381, 399, 23);
+
+        // petals
+        stroke(0, 0, 0);
+        fill(176, 161, 65);
+        ellipse(this.x-45, this.y- 30, 50, 40);
+        ellipse(this.x+73, this.y-34, 50, 40);
+        ellipse(this.x+32, this.y-34, 50, 40);
+        ellipse(this.x+-20, this.y-39, 40, 54);
+        fill(20, 20, 20);
+        ellipse(this.x+5, this.y-this.height, 40, 28);
+        };
+
+        var wiltedSf = new WiltedSf(199, 419, 165);
+
+
+        var drawScene4 = function() {
+        background(207, 250, 255);
+        wiltedSf.draw();
+        };
+        drawScene4();
+        }
+        // $(() => {
+        //   $('#water').click(function() {
+        //     drawScene4();
+        //   })
+        // })
+              </script>
+              <canvas id="deadFlower"
+              class="canvasalign"></canvas>
+
+        </body>
+
   <style>
   .leftimg{
     float:left;

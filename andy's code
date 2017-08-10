@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>The Greenhouse</title>
+    <h1 style="color:black;"align="center;" id="TITLE">The Greenhouse</h1>
+
+    <style>
+h1 {
+  font-size: 100px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: 0;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 24px 26px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+</style>
+
+  </head>
+  <body>
+    <input type="button" id="TEST" onclick="test()" value="CLIK ME"/>
+    <button onclick="original()">Click me</button>
+    <button id = "water">Water Me!</button>
+    <button id = "fertilizer">Fertilize Me!</button>
+    <button onclick = "test()">Kill me!</button>
+  <style>
+  body{
+    background-image: url("https://ak9.picdn.net/shutterstock/videos/10055033/thumb/1.jpg");
+  }
+  </style>
+    <img src="http://www.clker.com/cliparts/a/b/C/d/Q/7/tall-plant-in-pot.svg"
+        alt="plant1"
+        style="width:304px;height:504px"
+        class="leftimg">
+    <img src="http://www.clker.com/cliparts/a/b/C/d/Q/7/tall-plant-in-pot.svg"
+        alt="plant3"
+        style="width:304px;height:504px"
+        class="rightimg">
+
+        <ul>
+          <!-- <li><a class="active" href="{{ logout_url }}">Log out</a></li> -->
+          <li><a href="#about">  </a></li>
+        </ul>
+        <script src="/static/processing.js"></script>
+        <script type="text/processing" data-processing-target="flower">
+
+        $(() => {
+          $('#water').click(function() {
+            // $('#TITLE').fadeToggle(1000);
+            deadFlower();
+          })
+        })
+                  var w_xPositions = [241, 233, 207,194, 199,166, 210, 169];
+                  var w_yPositions = [104, 152, 112,198,131,118,89,161];
+                  var f_xPositions = [225, 232, 184,194, 199,166, 210, 169];
+                  var f_yPositions = [26, 90, 42,66,131,118,89,35];
+
+                  void setup()
+                  {
+                    size(400,400);
+                    frameRate(10);
+                    fill(0);
+                  }
+
+                  /*Flower Object Type
+                  *******************/
+                  void draw() {
+                    var sunFlower = function() {
+                        //sky
+                        background(207, 250, 255);
+                        //ground
+                        fill(64, 40, 40);
+                        rect(0, 381, 399, 23);
+                        //stem
+                        fill(16, 122, 12);
+                        rect(200, 240, 10, 165);
+                        //petals
+                        stroke(0, 0, 0);
+                        fill(255, 221, 0);
+                        ellipse(175, 211, 50, 40);
+                        ellipse(205, 180, 50, 40);
+                        ellipse(205, 240, 50, 40);
+                        ellipse(235, 211, 50, 40);
+                        fill(20,20,20);
+                        ellipse(205, 211, 40, 28);
+                      };
+
+                    var waterFlower = function(){
+                      //sky
+                      background(207, 250, 255);
+                      //ground
+                      fill(64, 40, 40);
+                      rect(0, 381, 401, 23);
+                      //stem
+                      fill(16, 122, 12);
+                      rect(200, 240, 10, 165);
+                      //petals
+                      stroke(0, 0, 0);
+                      fill(255, 221, 0);
+                      ellipse(175, 211, 50, 40);
+                      ellipse(205, 180, 50, 40);
+                      ellipse(205, 240, 50, 40);
+                      ellipse(235, 211, 50, 40);
+                      fill(20,20,20);
+                      ellipse(205, 211, 40, 28);
+                      //wateringCan
+                          fill(255, 255, 255);
+                          noStroke();
+                          ellipse(139,67,53, 65);
+                          ellipse(205,20,111, 65);
+                          ellipse(254,49,64, 59);
+                          fill(252, 252, 252);
+                          ellipse(158,41,53, 65);
+                          fill(252, 252, 252);
+                          ellipse(190,68,107, 65);
+                          ellipse(251,60,88, 65);
+
+                          for (var i = 0; i < w_xPositions.length; i++) {
+                              stroke(0, 0, 0);
+                              fill(0, 200, 255);
+                              ellipse(w_xPositions[i], w_yPositions[i], 10, 10);
+                              w_yPositions[i] += 4;
+                              if (w_yPositions[i] > 380) {
+                           w_yPositions[i] = 95;
+                         }
+                       }
+                     };
+
+
+
+                    var fertilizeFlower = function(){
+                      //sky
+                      background(207, 250, 255);
+                      //ground
+                      fill(64, 40, 40);
+                      rect(0, 381, 399, 23);
+                      //stem
+                      fill(16, 122, 12);
+                      rect(200, 240, 10, 165);
+                      //petals
+                      stroke(0, 0, 0);
+                      fill(255, 221, 0);
+                      ellipse(175, 211, 50, 40);
+                      ellipse(205, 180, 50, 40);
+                      ellipse(205, 240, 50, 40);
+                      ellipse(235, 211, 50, 40);
+                      fill(20,20,20);
+                      ellipse(205, 211, 40, 28);
+                      //fertilizer
+                          noFill();
+                          strokeWeight(4);
+                          arc(284, 40, 58, 48, 180, 360);
+                          strokeWeight(1);
+                          fill(143, 143, 143);
+                          rect(243, 40, 110, 68,10);
+
+                          for (var i = 0; i < f_xPositions.length; i++) {
+                              stroke(0, 0, 0);
+                              fill(227, 229, 230);
+                              ellipse(f_xPositions[i], f_yPositions[i], 10, 10);
+                              f_yPositions[i] += 4;
+                              if (f_yPositions[i] > 374) {
+                           f_yPositions[i] = 92;}
+                          }
+                    };
+
+                    var deadFlower = function(){
+                      var Flower = function (x, y, height) {
+                      this.x = x;
+                      this.y = y;
+                      this.height = height;
+                      };
+
+                      var WiltedSf = function(x, y, height) {
+                      Flower.call(this, x, y, height);
+                          };
+
+                      WiltedSf.prototype = Object.create(Flower.prototype);
+
+                      WiltedSf.prototype.draw = function() {
+                        fill(107, 79, 86);
+                        rect(this.x, this.y, 10, -this.height);
+                        //ground
+                        fill(130, 108, 108);
+                        rect(0, 381, 399, 23);
+
+                        // petals
+                        stroke(0, 0, 0);
+                        fill(176, 161, 65);
+                        ellipse(this.x-45, this.y- 30, 50, 40);
+                        ellipse(this.x+73, this.y-34, 50, 40);
+                        ellipse(this.x+32, this.y-34, 50, 40);
+                        ellipse(this.x+-20, this.y-39, 40, 54);
+                        fill(20, 20, 20);
+                        ellipse(this.x+5, this.y-this.height, 40, 28);
+                      };
+
+                      var wiltedSf = new WiltedSf(199, 419, 165);
+
+
+                      var drawScene4 = function() {
+                      background(0,0,0);
+                      wiltedSf.draw();
+
+
+                    };
+                    drawScene4();
+                  };
+                }
+        </script>
+
+        <canvas id="flower" class="canvasalign"></canvas>
+
+        </body>
+
+        <script>
+        $(document).ready(function(){
+          $(button).click(functon(){
+            var id = this.id;
+            if (id === "water"){
+              (new draw()).waterFlower();
+            }
+
+            else if (id === "fertilizer"){
+              (new draw()).fertilizeFlower();
+            }
+
+            else if (id === "death"){
+              (new draw()).deadFlower();
+            }
+
+            else if (id === "original"){
+              (new draw()).sunFlower();
+            }
+          });
+        });
+
+
+        </script>
+
+
+        <script src = "http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+        </body>
+
+  <style>
+  .leftimg{
+    float:left;
+  }
+  .rightimg{
+    float:right;
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+  }
+  .canvasalign{
+    display: block;
+    margin: 0 auto;
+    border: 3px solid;
+  }
+  </style>
+</html>
