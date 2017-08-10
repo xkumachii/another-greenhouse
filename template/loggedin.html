@@ -90,6 +90,10 @@ li a:hover {
             fill(20,20,20);
             ellipse(205, 211, 40, 28);
           }
+
+  //
+  //         $("#show").click(function(){
+  //           $("img").show();
           $(() => {
             $('#Start').click(function() {
             $('#startingFlower').show();;
@@ -113,6 +117,11 @@ li a:hover {
             $('#startingFlower').stop();;
             })
           })
+          $(document).ready(function(){
+              $('#Start').click(function() {
+              $('#startingFlower').show();;
+              })
+             });
           </script>
           <canvas id="startingFlower"
           class="canvasalign"></canvas>
@@ -191,6 +200,9 @@ li a:hover {
                     $('#waterFlower').stop();;
                     })
                   })
+                  $(document).ready(function(){
+                      $('#waterFlower').hide();;
+                      })
           </script>
           <canvas id="waterFlower"
           class="canvasalign"></canvas>
@@ -264,6 +276,9 @@ li a:hover {
                       $('#fertilizeFlower').stop();;
                       })
                     })
+                    $(document).ready(function(){
+                        $('#fertilizeFlower').hide();;
+                        })
             </script>
             <canvas id="fertilizeFlower"
             class="canvasalign"></canvas>
@@ -338,6 +353,9 @@ li a:hover {
           $('#deadFlower').show();;
           })
         })
+        $(document).ready(function(){
+            $('#deadFlower').hide();;
+            })
               </script>
               <canvas id="deadFlower"
               class="canvasalign"></canvas>
