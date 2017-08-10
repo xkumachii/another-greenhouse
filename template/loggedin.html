@@ -12,7 +12,7 @@ h1 {
 
 ul {
     list-style-type: none;
-    margin: 0;
+    margin-top: 10px;
     padding: 0;
     overflow: hidden;
     background-color: 0;
@@ -32,6 +32,36 @@ li a {
 
 li a:hover {
     background-color: #111;
+}
+</style>
+<input type="button"class="press" id="Start"value="Original Plant"/>
+<input type="button"class="press" id="Water"value="Water Plant"/>
+<input type= "button"class="press" id ="Fertilizer"value="Fertilize"/>
+<input type= "button"class ="press" id="Death"value="Kill Me!"/>
+<style>
+.press {
+    background-color: #4CAF50; /* Green */
+    border: 1px solid green;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 15px;
+    box-shadow: 0 6px #999;
+}
+.press:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+}
+.press:hover {
+    background-color: #3e8e41;
+}
+.press:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 </style>
 
@@ -55,12 +85,6 @@ li a:hover {
           <!-- <li><a class="active" href="{{ logout_url }}">Log out</a></li> -->
           <li><a href="#about">  </a></li>
         </ul>
-
-          <input type="button"class="press" id="Start"value="Original Plant"/>
-          <input type="button"class="press" id="Water"value="Water Plant"/>
-          <input type= "button"class="press" id ="Fertilizer"value="Fertilize"/>
-          <input type= "button"class="press" id="Death"value="Kill Me!"/>
-
         <script src="/static/processing.js"></script>
         <script type="text/processing" data-processing-target="startingFlower">
         void setup()
